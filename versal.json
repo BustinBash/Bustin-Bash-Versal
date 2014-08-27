@@ -1,10 +1,10 @@
 {
   "launcher": "iframe",
   "name": "Bustin-Bash-Versal",
-  "version": "0.0.1",
-  "title": "My gadget",
-  "description": "Does nothing just yet",
-  "author": "anonymous",
+  "version": "0.0.2",
+  "title": "Bustin Bash",
+  "description": "First ever inbrowser bash tutorial.",
+  "author": ["Puru Dahal", "Arik Gadye"],
   "defaultConfig": {},
   "defaultUserState": {}
 }
