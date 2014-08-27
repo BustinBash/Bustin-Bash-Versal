@@ -1,57 +1,347 @@
-<!DOCTYPE html>
 <html>
 <head>
-<title>Empty gadget</title>
-<script src="bower_components/versal-component-runtime/dist/runtime.min.js"></script>
-<link rel="import" href="bower_components/versal-gadget-api/versal-gadget-api.html">
+  <title>Bustin'Bash</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" src="http://normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/directory.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/application.css" >
+  <link rel="stylesheet" type="text/css" href="stylesheets/terminal.css">
+  <link href="stylesheets/hopscotch.css" rel="stylesheet">
+
+  <!-- Javascripts -->
+  <script type="text/javascript" src="javascripts/vendor/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="javascripts/vendor/handlebars.js"></script>
+  <script type="text/javascript" src="javascripts/vendor/hopscotch.min.js"></script>
+  <script type="text/javascript" src="namespace.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="javascripts/database/database.js"></script>
+  <script type="text/javascript" src="javascripts/master/master.js"></script>
+  <script type="text/javascript" src="javascripts/question/question.js"></script>
+  <script type="text/javascript" src="javascripts/instruction/instruction.js"></script>
+  <script type="text/javascript" src="javascripts/terminal/terminal.js"></script>
+  <script type="text/javascript" src="javascripts/hints/hints.js"></script>
+  <script type="text/javascript" src="javascripts/directory/directory.js"></script>
+  <script type="text/javascript" src="javascripts/title/title.js"></script>
+  <script type="text/javascript" src="javascripts/tour/tour.js"></script>
+  <script type="text/javascript" src="javascripts/lessons/lessons.js"></script>
+  <script type="text/javascript" src="javascripts/storage/storage.js"></script>
 </head>
-
 <body>
-<input type="text" name="greeting" readonly value="What is your name?">
-<input type="text" name="learnerName">
-<style>
-input {
-  font-size: 20px;
-  padding: 5px;
-  min-width: 300px;
-}
-input[readonly] {
-  border: 1px solid transparent;
-}
-</style>
+  <div class="container">
+
+    <!-- Navbar/ LOGO -->
+    <div class="row clearfix">
+      <div class="navbar column two-thirds" id ="navbar_popup">
+      </div>
+      <div class="logo column third">
+        <img class="logo" src="images/terminal.png">
+        <h1 class="logo-text">BustinBash</h1>
+      </div>
+    </div>
+    <hr>
+
+    <!-- title -->
+    <div class="header">
+      <div class='title'>
+      </div>
+
+      <!-- instrutions -->
+
+      <div class='instructions' id="instruction-template">
+      </div>
+    </div>
+
+    <!-- Terminal/ Hints/ Questions -->
+    <div class="row clearfix">
+      <div class="column two-thirds wrapper">
+        <div class="term-nav">
+          <div id='terminal-light'>
+            <div id='red'></div>
+            <div id='yellow'></div>
+            <div id='green'></div>
+          </div>
+        </div>
+
+        <div class="terminal">
+          <div class='feed'></div>
+          <div class='input' id="terminal_popup">
+            :> <input id="terminal-input">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="task-box column third">
+        <div id="popup_task" class="question">
+          <h5>Task:</h5>
+        </div>
+        <div class="hints"></div>
+        <!-- <center> -->
+          <button id="hint">Stuck?</small></button>
+        <!-- </center> -->
+        <!-- Hints -->
+      </div>
+    </div>
+    <hr>
+    <!-- Directory-->
+    <div class="row clearfix">
+      <div class="column two-thirds">
+        <div class="directory">
+          <div id='finder'>
+            <div id='toolbar'>
+              <div id='traffic-light'>
+                <div id='red'></div>
+                <div id='yellow'></div>
+                <div id='green'></div>
+              </div>
+              <div id='windowname'>
+                <i></i>
+                <span class="current-folder">Bustin' Bash</span>
+              </div>
+              <div id='actions'>
+                <div id='back'></div>
+                <div id='next'></div>
+                <div id='iconV'></div>
+                <div id='list'></div>
+                <div id='grid'></div>
+                <div id='coverflow'>
+                  <i class='view little'></i>
+                </div>
+                <div id='settings'></div>
+                <div id='share'></div>
+                <input results='0' type='search'>
+              </div>
+            </div>
+            <div id='view'>
+              <div id='sidebar'>
+                <ul>
+                  <li>
+                    <span class='group'>
+                      Favorites
+                    </span>
+                    <ul>
+                      <li class='current_page'>
+                        <i class='afiles'></i>
+                        All My Files
+                      </li>
+                      <li>
+                        <i class='airdrop little'></i>
+                        AirDrop
+                      </li>
+                      <li>
+                        <i class='apps little'></i>
+                        Applications
+                      </li>
+                      <li>
+                        <i class='desk little'></i>
+                        Desktop
+                      </li>
+                      <li>
+                        <i class='docs little'></i>
+                        Documents
+                      </li>
+                      <li>
+                        <i class='downs little'></i>
+                        Downloads
+                      </li>
+                      <li>
+                        <i class='mov little'></i>
+                        Movies
+                      </li>
+                      <li>
+                        <i class='music little'></i>
+                        Music
+                      </li>
+                      <li>
+                        <i class='pic little'></i>
+                        Pictures
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class='group'>
+                      Shared
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div id='content'>
+                <div class="directory" id="directory_popup">
+                  <div class="row clearfix">
+                    <div class="column fifth" id="divider1">
+                      <!--Home-->
+                      <ul class="countries">
+                        <li>
+                          <img id="popup-folder" class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">usa</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">canada</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">mexico</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- Branch 1 -->
+                    <div class="column fifth" id="divider2">
+                      <ul class="states">
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">ca</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">ny</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">tx</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Branch 2 -->
+                    <div class="column fifth" id="divider3">
+                      <ul class="cities">
+
+                        <li id="marin">
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">marin</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">san_francisco</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">newyork_city</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/folder.png">
+                          <span class="folder-text">austin</span>
+                          <span class="pointer">&#9654</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Branch 3 -->
+
+                    <div class='column fifth' id="divider4">
+                      <ul class="places">
+                        <li>
+                          <img class='folder-icon' src="images/icons/text.png">
+                          <span class="folder-text">ggpark.txt</span>
+                        </li>
+                        <li>
+                          <img class='folder-icon' src="images/icons/text.png">
+                          <span class="folder-text">crissyfield.txt</span>
+                        </li>
+                        <li id="the_bay">
+                          <img class='folder-icon' src="images/icons/text.png">
+                          <span class="folder-text">the_bay.txt</span>
+                        </li> 
+                        <li id="yo">
+                          <img class='folder-icon' src="images/icons/text.png">
+                          <span class="folder-text">yo.txt</span>
+                        </li>
+                        <li id="foggy">
+                          <img class='folder-icon' src="images/icons/text.png">
+                          <span class="folder-text">foggy_nights.txt</span>
+                        </li>
+                      </ul>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--End of Directory-->
+      <!-- Cool Tips about bash -->
+      <div class="twitter-box column third">
+        <h2>Fun Facts</h2>
+
+        <!-- Embeded twitter widget-->
+        <a class="twitter-timeline" href="https://twitter.com/bustinbash" data-widget-id="502224798903042050">Tweets by @bustinbash</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+      </div>
+    </div>
+    <hr>
+    <!-- Footer -->
+    <div class="footer column full row clearfix">
+        <center>
+          <span>Code licensed under</span> <a href="https://github.com/BustinBash/BustinBash/blob/master/LICENSE" target="_blank">MIT</a><br>
+          <span>Designed and built with all the love in the world by</span><br>
+          <a href="https://github.com/arikgadye" target="_blank">@Arik</a>,
+          <a href="https://github.com/bajunio" target="_blank"> @Brian</a>,
+          <a href="https://github.com/dahal" target="_blank"> @Puru</a> and
+          <a href="https://github.com/Adnard-Kod" target="_blank"> @Andra</a><br>
+          <a  class="footer-text" href="http://github.com/BustinBash/BustinBash" target="_blank"><img src="images/icons/github.png"></a>
+          
+        </center>
+    </div>
+  <!-- </div> -->
+
+  <!-- Handlebars Templates -->
+
+  <!-- Question -->
+  <script id="question-template" type="text/x-handlebars-template">
+  <h2>Task</h2>
+  <p>{{question}}</p>
+  </script>
+
+  <!-- Terminal -->
+  <script id="terminal-success-template" type="text/x-handlebars-template"><p class='term-name'>BustinBash:- {{input}}</p>
+  <p class='term-success'>{{success}}</p>
+  </script>
+
+  <script id="terminal-error-template" type="text/x-handlebars-template"><p class='term-name'>BustinBash:- {{input}}</p>
+  <p class='term-error'>{{error}}</p>
+  </script>
+
+  <!-- Hints -->
+  <script id="hints-template" type="text/x-handlebars-template">
+  <p>{{hint}}</p>
+  </script>
+
+  <!-- instruction -->
+  <script id="instruction-template-script" type="text/x-handlebars-template">
+  <p>{{instruction}}</p>
+  </script>
+
+  <!-- title -->
+  <script id="title-template" type="text/x-handlebars-template">
+  <h2>{{title}}</h2>
+  </script>
+
+  <!-- Lessons -->
+  <script id="lessons-template" type="text/x-handlebars-template">
+  <div class='tooltip levels' id={{lesson}} data-tooltip-content={{title}}><img class='little' src='images/terminal.png'></div>
+  </script>
+
+</div>
+</div>
+
 </body>
-
-<script>
-var greeting = document.querySelector('[name=greeting]');
-var learnerName = document.querySelector('[name=learnerName]');
-var player = new VersalPlayerAPI();
-
-greeting.addEventListener('change', function(e){
-  player.setAttribute(greeting.name, greeting.value);
-});
-
-learnerName.addEventListener('change', function(e){
-  player.setLearnerAttribute(learnerName.name, learnerName.value);
-});
-
-player.on('attributesChanged', function(data){
-  if(data.greeting) {
-    greeting.value = data.greeting;
-  };
-});
-
-player.on('learnerStateChanged', function(data){
-  if(data.learnerName) {
-    learnerName.value = data.learnerName;
-  };
-});
-
-player.on('editableChanged', function(editable){
-  greeting.readOnly = !editable.editable;
-  learnerName.readOnly = editable.editable;
-});
-
-player.setHeight(60);
-player.startListening();
-</script>
 </html>
+
