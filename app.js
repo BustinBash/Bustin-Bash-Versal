@@ -2,14 +2,12 @@ $(document).ready(function(){
   // Database
 
   // Master
-  var mc = new BustinBash.Master.Controller
-  mc.init();
-  // mc.bindEvents()
+  var player = new VersalPlayerAPI();
 
   // Terminal
   // var tm = new Terminal.Model
   var tv = new BustinBash.Terminal.View
-  var tc = new BustinBash.Terminal.Controller(tv)
+  var tc = new BustinBash.Terminal.Controller(tv, player)
   tc.init()
 
   // Directory
@@ -17,4 +15,7 @@ $(document).ready(function(){
   var dv = new BustinBash.Directory.View
   var dc = new BustinBash.Directory.Controller(dv)
   dc.init()
+
+  // Player
+  var pc = new BustinBash.Player.Controller(player)
 })
