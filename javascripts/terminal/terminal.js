@@ -49,8 +49,7 @@ BustinBash.Terminal.Controller.prototype = {
     }.bind(this));
     $('.terminal').keypress(function(e) {
      if (e.which === 13) {
-      debugger
-      console.log($(this).val())
+      console.log($(this))
       this.checkInput()
     }
   }.bind(this));
@@ -66,7 +65,6 @@ BustinBash.Terminal.Controller.prototype = {
     // debugger
     console.log(this.input)
     if(this.input === this.answer) {
-      alert(input)
       $(document).trigger('success', function() {
         return this.data;
         alert("done")
