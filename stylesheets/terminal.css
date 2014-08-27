@@ -5,7 +5,6 @@
 .term-nav{
 
   margin-top: 20px;
-  margin-left: 20px;
   width: 800px;
   margin-top: 10px;
   height: 21px;
@@ -17,7 +16,6 @@
 
   border-collapse:collapse;
   display : table;
-  margin: 20px;
   width: 800px;
   border-radius: 0 0px 5px 5px;
   height: 35%;
