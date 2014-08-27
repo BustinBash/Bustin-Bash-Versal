@@ -16,7 +16,7 @@ BustinBash.Terminal.View.prototype = {
     this.updateDOM(text);
   },
 
-  renderError: function() {
+  renderError: function(value) {
     var source   = $("#terminal-error-template").html();
     var template = Handlebars.compile(source);
     var context  = {error: "Oops! You didn't type in the correct response"}
@@ -32,6 +32,7 @@ BustinBash.Terminal.View.prototype = {
     $('.feed').scrollTop($('.feed')[0].scrollHeight);
   },
   updateDOM: function(text) {
+    debugger
     $('.feed').append(text)
     $('input').val("");
     $('.feed').scrollTop($('.feed')[0].scrollHeight);
@@ -73,7 +74,7 @@ BustinBash.Terminal.Controller.prototype = {
       this.view.renderLS(this.data.Branches)
     } 
     else {
-      this.view.renderError()
+      this.view.renderError(this.success)
     }
   },
   focusInput: function(){
