@@ -1,9 +1,13 @@
 
 BustinBash.Terminal.View = function() {
-  this.input = $("iframe").contents().find("#terminal-input").val()
 }
 
+
 BustinBash.Terminal.View.prototype = {
+  // inputValue: function(){
+  //   return $("iframe").contents().find("#terminal-input").val()  
+  // },
+
   renderSuccess: function(value, input) {
     var source   = $("#terminal-success-template").html();
     var template = Handlebars.compile(source);
@@ -49,8 +53,8 @@ BustinBash.Terminal.Controller.prototype = {
     }.bind(this));
     $('.terminal').keypress(function(e) {
      if (e.which === 13) {
-      console.log($(this))
-      this.checkInput()
+      var input = e.target.value
+      this.checkInput(input)
     }
   }.bind(this));
     $('.terminal').on('click', function(e){
@@ -61,13 +65,12 @@ BustinBash.Terminal.Controller.prototype = {
     this.answer = data.response
     this.success = data.success
   },
-  checkInput: function() {
+  checkInput: function(input) {
     // debugger
-    console.log(this.input)
-    if(this.input === this.answer) {
+    if(input === this.answer) {
       $(document).trigger('success', function() {
-        return this.data;
         alert("done")
+        return this.data;
       }.bind(this));
       this.view.renderSuccess()
     } else if(this.input === 'ls') {
