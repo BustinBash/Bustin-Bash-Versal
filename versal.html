@@ -29,6 +29,8 @@
     <textarea class='instructions-input'></textarea>
     <h5>What is the correct terminal response?</h5>
     <input class='response'>
+    <h5>Type in the folder structure you'd like to use for this challenge (optional):</h5>
+    <input class='structure'>
     <h5>What gets printed out on a successful input?</h5>
     <input class='success'>
   </div>
@@ -40,195 +42,6 @@
   </div>
 </div>
 <hr>
-
-<!-- Directory-->
-<div class="row clearfix">
-  <div class="directory">
-    <div id='finder'>
-      <div id='toolbar'>
-        <div id='traffic-light'>
-          <div id='red'></div>
-          <div id='yellow'></div>
-          <div id='green'></div>
-        </div>
-        <div id='windowname'>
-          <i></i>
-          <span class="current-folder">Bustin' Bash</span>
-        </div>
-        <div id='actions'>
-          <div id='back'></div>
-          <div id='next'></div>
-          <div id='iconV'></div>
-          <div id='list'></div>
-          <div id='grid'></div>
-          <div id='coverflow'>
-            <i class='view little'></i>
-          </div>
-          <div id='settings'></div>
-          <div id='share'></div>
-          <input results='0' type='search'>
-        </div>
-      </div>
-      <div id='view'>
-        <div id='sidebar'>
-          <ul>
-            <li>
-              <span class='group'>
-                Favorites
-              </span>
-              <ul>
-                <li class='current_page'>
-                  <i class='afiles'></i>
-                  All My Files
-                </li>
-                <li>
-                  <i class='airdrop little'></i>
-                  AirDrop
-                </li>
-                <li>
-                  <i class='apps little'></i>
-                  Applications
-                </li>
-                <li>
-                  <i class='desk little'></i>
-                  Desktop
-                </li>
-                <li>
-                  <i class='docs little'></i>
-                  Documents
-                </li>
-                <li>
-                  <i class='downs little'></i>
-                  Downloads
-                </li>
-                <li>
-                  <i class='mov little'></i>
-                  Movies
-                </li>
-                <li>
-                  <i class='music little'></i>
-                  Music
-                </li>
-                <li>
-                  <i class='pic little'></i>
-                  Pictures
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span class='group'>
-                Shared
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div id='content'>
-          <div class="directory" id="directory_popup">
-            <div class="row clearfix">
-              <div class="column fifth" id="divider1">
-                <!--Home-->
-                <ul class="countries">
-                  <li>
-                    <img id="popup-folder" class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">usa</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">canada</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">mexico</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- Branch 1 -->
-              <div class="column fifth" id="divider2">
-                <ul class="states">
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">ca</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">ny</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">tx</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Branch 2 -->
-              <div class="column fifth" id="divider3">
-                <ul class="cities">
-
-                  <li id="marin">
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">marin</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">san_francisco</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">newyork_city</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/folder.png">
-                    <span class="folder-text">austin</span>
-                    <span class="pointer">&#9654</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Branch 3 -->
-
-              <div class='column fifth' id="divider4">
-                <ul class="places">
-                  <li>
-                    <img class='folder-icon' src="images/icons/text.png">
-                    <span class="folder-text">ggpark.txt</span>
-                  </li>
-                  <li>
-                    <img class='folder-icon' src="images/icons/text.png">
-                    <span class="folder-text">crissyfield.txt</span>
-                  </li>
-                  <li id="the_bay">
-                    <img class='folder-icon' src="images/icons/text.png">
-                    <span class="folder-text">the_bay.txt</span>
-                  </li> 
-                  <li id="yo">
-                    <img class='folder-icon' src="images/icons/text.png">
-                    <span class="folder-text">yo.txt</span>
-                  </li>
-                  <li id="foggy">
-                    <img class='folder-icon' src="images/icons/text.png">
-                    <span class="folder-text">foggy_nights.txt</span>
-                  </li>
-                </ul>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <!-- Handlebars Templates -->
@@ -248,10 +61,6 @@
   <p class='term-error'>{{error}}</p>
   </script>
 
-  <!-- Hints -->
-  <script id="hints-template" type="text/x-handlebars-template">
-  <p>{{hint}}</p>
-  </script>
 
   <!-- instruction -->
   <script id="instruction-template-script" type="text/x-handlebars-template">
@@ -268,78 +77,9 @@
   <div class='tooltip levels' id={{lesson}} data-tooltip-content={{title}}><img class='little' src='images/terminal.png'></div>
   </script>
 
-  <script>
- //  var player = new VersalPlayerAPI();
- //  player.setHeight(800)
- //  player.on('editableChanged', function(editableObj){
- //   if(editableObj.editable) {
- //     document.body.appendChild(document.createTextNode('author '));
- //   } else {
- //     document.body.appendChild(document.createTextNode('learner '));
- //   }
- // });
- //  </script>
 
 </div>
 </div>
-<script>
-// var player = new VersalPlayerAPI();
-
-// player.on('editableChanged', function(editableObj){
-//   if(editableObj.editable) {
-//     $('.instructions').show();
-//   } else {
-//     $('.instructions').hide();
-
-//    document.body.appendChild(document.createTextNode('learner '));
-//  }
-// });
-
-
-
-//   // send this command to receive initial events
-//   player.startListening();
-
-//   // continuously watch for changes in height
-//   player.watchBodyHeight();
-//   var input = $('.instructions-input')
-//   input.on('blur', function(){
-//    player.setAttributes({
-//      instructions: input.val()
-//    });
-//  });
-//   player.on('attributesChanged', function(attrs){
-//    if(attrs && attrs.instructions) {
-//      input.value = attrs.instructions;
-//    }
-//  });
-
-
-//  var response = $('.response')
-//   response.on('blur', function(){
-//    player.setAttributes({
-//      response: response.val()
-//    });
-//  });
-//   player.on('attributesChanged', function(attrs){
-//    if(attrs && attrs.instructions) {
-//      response.value = attrs.response;
-//    }
-//  });
-
-// var success = $('.success')
-//   success.on('blur', function(){
-//    player.setAttributes({
-//      success: success.val()
-//    });
-//  });
-//   player.on('attributesChanged', function(attrs){
-//    if(attrs && attrs.instructions) {
-//      success.value = attrs.success;
-//    }
-//  });
-
-  </script>
 </body>
 </html>
 

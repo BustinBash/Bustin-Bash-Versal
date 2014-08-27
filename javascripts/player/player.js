@@ -1,6 +1,6 @@
 BustinBash.Player.Controller = function(player){
 
-    player.setHeight(800)
+  player.setHeight(800)
   player.on('editableChanged', function(editableObj){
    if(editableObj.editable) {
      document.body.appendChild(document.createTextNode('author '));
@@ -59,6 +59,18 @@ BustinBash.Player.Controller = function(player){
   player.on('attributesChanged', function(attrs){
    if(attrs && attrs.instructions) {
      success.value = attrs.success;
+   }
+ });
+
+  var structure = $('.structure')
+  structure.on('blur', function(){
+   player.setAttributes({
+    structure: structure.val()
+   });
+ });
+  player.on('attributesChanged', function(attrs){
+   if(attrs && attrs.instructions) {
+    structure.value = attrs.structure;
    }
  });
 }
