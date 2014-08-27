@@ -42,11 +42,11 @@ $(document).ready(function(){
   hc.init()
 
 
-  // Directory
-  // var dm = new Directory.Model
-  var dv = new BustinBash.Directory.View
-  var dc = new BustinBash.Directory.Controller(dv)
-  dc.init()
+  // // Directory
+  // // var dm = new Directory.Model
+  // var dv = new BustinBash.Directory.View
+  // var dc = new BustinBash.Directory.Controller(dv)
+  // dc.init()
 
 
   // Title
