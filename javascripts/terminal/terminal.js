@@ -8,10 +8,10 @@ BustinBash.Terminal.View.prototype = {
   //   return $("iframe").contents().find("#terminal-input").val()  
   // },
 
-  renderSuccess: function(value, input) {
+  renderSuccess: function(value) {
     var source   = $("#terminal-success-template").html();
     var template = Handlebars.compile(source);
-    var context  = {success: "Right answer"}
+    var context  = {success: value}
     var text     = template(context);
     this.updateDOM(text);
   },
@@ -68,11 +68,7 @@ BustinBash.Terminal.Controller.prototype = {
   checkInput: function(input) {
     // debugger
     if(input === this.answer) {
-      $(document).trigger('success', function() {
-        alert("done")
-        return this.data;
-      }.bind(this));
-      this.view.renderSuccess()
+      this.view.renderSuccess(this.success) 
     } else if(this.input === 'ls') {
       this.view.renderLS(this.data.Branches)
     } 
