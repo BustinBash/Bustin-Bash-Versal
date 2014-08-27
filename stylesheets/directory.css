@@ -60,7 +60,6 @@ i {
   height: 441px;
   width: 800px;
   /*margin: 0 auto;*/
-  margin: 30px 0 30px 0;
 }
 #finder *::before,
 #finder *::after {
