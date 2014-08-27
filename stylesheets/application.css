@@ -1,3 +1,10 @@
+.instructions {
+  display: none;
+}
+.instructions-input{
+  width: 200px;
+  height: 100px
+}
 body{
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   background-image: url('../images/background.png');
