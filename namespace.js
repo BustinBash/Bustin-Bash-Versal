@@ -1,5 +1,6 @@
 var BustinBash = {
   Directory:    {},
+  Curriculum: {},
   Instruction:  {},
   Question:     {},
   Terminal:     {},
@@ -8,7 +9,8 @@ var BustinBash = {
   Master:       {},
   Title:        {},
   Lessons:      {},
-  Storage:      {}
+  Storage:      {},
+  Player:       {} 
 }
 
 
