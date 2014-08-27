@@ -4,10 +4,6 @@ BustinBash.Terminal.View = function() {
 
 
 BustinBash.Terminal.View.prototype = {
-  // inputValue: function(){
-  //   return $("iframe").contents().find("#terminal-input").val()  
-  // },
-
   renderSuccess: function(value) {
     var source   = $("#terminal-success-template").html();
     var template = Handlebars.compile(source);
@@ -25,9 +21,7 @@ BustinBash.Terminal.View.prototype = {
   },
 
   renderLS: function(branches){
-    branches.forEach(function(branch){
-      $('.feed').append("<div>" + branch + "</div>")
-    });
+    $('.feed').append("<div>" + branches + "</div>")
     $('input').val("");
     $('.feed').scrollTop($('.feed')[0].scrollHeight);
   },
@@ -64,13 +58,13 @@ BustinBash.Terminal.Controller.prototype = {
   storeData: function(data){
     this.answer = data.response
     this.success = data.success
+    this.structure = data.structure
   },
   checkInput: function(input) {
-    // debugger
     if(input === this.answer) {
       this.view.renderSuccess(this.success) 
-    } else if(this.input === 'ls') {
-      this.view.renderLS(this.data.Branches)
+    } else if(input === 'ls') {
+      this.view.renderLS(this.structure)
     } 
     else {
       this.view.renderError()
